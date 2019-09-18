@@ -70,9 +70,9 @@ function sumNums(x, y, cb) {
 // }
 
   // multiplyNums multiplies two numbers and passes the result to the callback.
-  let multiplyNums(x, y, cb) {
+  let multiplyNums = (x, y, cb) => {
     cb(x, y);
-  }
+  };
   
   // multiplyNums(4, 5, (cb)) {
   // return multiplyNums();
@@ -107,11 +107,11 @@ contains('Notebook', items, test); 
 
 /* STRETCH PROBLEM */
 
-function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
-}
+  function removeDuplicates(array, cb) {
+  }
 
 // function banana(a,b,cb){
 //   cb(a,b);
@@ -126,4 +126,4 @@ function removeDuplicates(array, cb) {
 // }
 
 // banana(5,7, multiply);
-// banana(3,8,add);
+// banana(3,8,add)
