@@ -110,8 +110,8 @@ contains('Notebook', items, test); 
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
-  function removeDuplicates(array, cb) {
-  }
+  // function removeDuplicates(array, cb) {
+  // }
 
 // function banana(a,b,cb){
 //   cb(a,b);
@@ -126,4 +126,4 @@ contains('Notebook', items, test); 
 // }
 
 // banana(5,7, multiply);
-// banana(3,8,add)
+// banana(3,8,add);

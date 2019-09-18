@@ -58,9 +58,8 @@ const runners = [
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs. Combine both the first and last names and populate a new array called `fullNames`. This array will contain just strings.
 let fullNames = [];
-
 runners.forEach(function(currentValue){
-  fullNames.push(currentValue.first_name, currentValue.last_name); 
+  fullNames.push(`${currentValue.first_name} ${currentValue.last_name}`); 
 })
 console.log(fullNames);
 
@@ -74,22 +73,41 @@ console.log(firstNamesAllCaps);
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only those runners with large sized shirts so they can choose a different size. This will be an array of objects.
 let runnersLargeSizeShirt = runners.filter(function(currentValue){
-  return currentValue.shirt_size === "L";
+  return (currentValue.shirt_size == "L");
 })
 console.log(runnersLargeSizeShirt);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
-let ticketPriceTotal = runners.reduce(function(accumulator, currentValue, donation, runners){
-  return accumulator + currentValue;
-});
+let ticketPriceTotal = runners.reduce(function(accumulator, currentValue){
+  return accumulator + currentValue.donation;
+},0);
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+let companyDonation = [];
+runners.forEach(function(currentValue){
+  companyDonation.push(`${currentValue.company_name}: $${currentValue.donation}`); 
+})
+console.log(companyDonation);
 
 // Problem 2
+let majorDonors = runners.filter(function(currentValue){
+  return (currentValue.donation > 200);
+})
+console.log(majorDonors);
 
 // Problem 3
+let majorTotal = majorDonors.reduce(function(accumulator, currentValue){
+  return accumulator + currentValue.donation;
+},0);
+console.log(majorTotal);
+
+function majorPercentage(a, b){
+  return (a / b) * 100;
+}
+
+console.log(majorPercentage(majorTotal, ticketPriceTotal));
