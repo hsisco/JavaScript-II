@@ -1,6 +1,6 @@
 // Create a higher order function and invoke the callback function to test your work. You have been provided an example of a problem and a solution to see how this works with our items array.  Study both the problem and the solution to figure out the rest of the problems.
 
-const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
+// const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 /* 
 
@@ -37,28 +37,73 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
   const test2 = firstItem(items, logExorbitantPrice);
   console.log(test2); // "this Pencil is worth a million dollars!"
 */
+const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 
-function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
+function getLength(arr,cb){
+  cb(items.length);
 }
+  console.log(getLength());
 
-function last(arr, cb) {
+  function getLength(arr, cb) {
+    return cb(items.length);
+    }
+    const test1 = getLength(items, item => `I love the number ${item}!`);
+    console.log(test1);
+
   // last passes the last item of the array into the callback.
+function last(arr, cb) {
+  const lastItem = (array.length - 1)
+  cb(array[lastItem]);
 }
+// last(items (lastItem)){
+//   console.log(lastItem);
+// };
 
-function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+function sumNums(x, y, cb) {
+  cb(x + y);
 }
+// sumNums(4, 10, (cb)) {
+// return sumNums;
+// }
 
-function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
-}
+  let multiplyNums(x, y, cb) {
+    cb(x, y);
+  }
+  
+  // multiplyNums(4, 5, (cb)) {
+  // return multiplyNums();
+  // }
 
-function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+function contains(thing, list, cb) {
+  for(let i=0; i<items.length;i++)
+  if(list[i] = items){
+    return cb(true);
+  } else {
+  return cb(false);
 }
+}
+function test(testItem) {
+  console.log(testItem);
+  return;
+}
+
+firstItem(items, test);
+getLength(items, test);
+last(items, test);
+sumNums(3, 5, test);
+multiplyNums(3, 5, test);
+contains('Dog', items, test);
+contains('Notebook', items, test); 
+
+// console.log(contains('Notebook', items, (cb)))
+
+// console.log(contains('Peach', items, (cb)))
 
 /* STRETCH PROBLEM */
 
@@ -67,3 +112,18 @@ function removeDuplicates(array, cb) {
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
 }
+
+// function banana(a,b,cb){
+//   cb(a,b);
+// }
+
+// function add(x,y){
+//   console.log(x + y);
+// }
+
+// function multiply(x,y){
+//   console.log(x * y);
+// }
+
+// banana(5,7, multiply);
+// banana(3,8,add);
